@@ -1,6 +1,6 @@
 const initialize = () => {
-    const button = document.createElement('button');
-    const response = document.createElement('pre');
+    const button: HTMLElement = document.createElement('button');
+    const response: HTMLElement = document.createElement('pre');
     const onClick = async () => {
         response.innerText = await userAgent();
     };
@@ -10,8 +10,9 @@ const initialize = () => {
     document.body.appendChild(response);
 };
 
-const userAgent = () => fetch('https://httpbin.org/user-agent')
-    .then(res => res.json())
-    .then(data => data['user-agent']);
+const userAgent: () => Promise<string> =
+    () => fetch('https://httpbin.org/user-agent')
+        .then(res => res.json())
+        .then(data => data['user-agent']);
 
 document.addEventListener('DOMContentLoaded', initialize);

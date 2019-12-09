@@ -3,7 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: [
-        './src/index.js',
+        './src/index.ts',
         './src/index.css'
     ],
     output: {
@@ -15,6 +15,10 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.ts$/,
+                use: ['ts-loader']
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
